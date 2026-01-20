@@ -75,7 +75,7 @@ public class UserTests extends BaseTest{
         user.setEmail("invalid@@gmail.com");
         APIResponseWrapper apiResponse = userServiceOperations.createUser(user);
         List<APIErrorMessage> apiErrorMessages = apiResponse.convertResponseToList(APIErrorMessage.class);
-        apiResponse.assertStatus(421,"Unprocessable Entity");
+        apiResponse.assertStatus(422,"Unprocessable Entity");
         apiResponse.assertError("email","is invalid");
     }
 }
