@@ -20,4 +20,19 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            dir("${WORKSPACE}") {
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target',
+                    reportFiles: 'extent-report.html',
+                    reportName: 'Extent API Automation Report'
+                ])
+            }
+        }
+    }
 }
