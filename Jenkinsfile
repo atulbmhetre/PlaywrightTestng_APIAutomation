@@ -16,7 +16,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 echo "Running tests for env=${params.env}, groups=${params.groups}"
-                sh "mvn clean test -Denv=${params.env} -Dgroups=${params.groups}"
+                bat "mvn clean test -Denv=${params.env} -Dgroups=${params.groups}"
             }
         }
     }
